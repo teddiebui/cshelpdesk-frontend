@@ -4,8 +4,10 @@ import { AuthProvider } from './auth/AuthContext'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './auth/Login'
 import ProtectedRoute from './auth/ProtectedRoute'
-import AdminLayout from './components/AdminLayout'
+import Layout from './components/fragment/Layout'
 import Pending from './pages/Pending'
+import TodayStaff from './pages/TodayStaff'
+import TodayTicket from './pages/TodayTicket'
 
 const router = createBrowserRouter([
   {
@@ -16,47 +18,41 @@ const router = createBrowserRouter([
     path: '/',
     element: (
       <ProtectedRoute>
-        <AdminLayout />
+        <Layout />
       </ProtectedRoute>
     ),
     children: [
       {
         index: true,
-        element: <Pending title="Bảng điều khiển" description="Chào mừng đến với bảng điều khiển quản trị CS Helpdesk." />,
+        element: <Pending />,
       },
       {
-        path: 'dashboard',
-        element: <Pending title="Bảng điều khiển" description="Tổng quan về hệ thống và thống kê." />,
-        children: [
-          {
-            path: 'today-staff',
-            element: <Pending title="Today Staff" description="Thông tin nhân viên làm việc hôm nay." />,
-          },
-          {
-            path: 'today-tickets',
-            element: <Pending title="Today Tickets" description="Danh sách ticket được tạo hôm nay." />,
-          },
-        ],
+        path: 'today-staff',
+        element: <TodayStaff />,
+      },
+      {
+        path: 'today-ticket',
+        element: <TodayTicket />,
       },
       {
         path: 'tickets',
-        element: <Pending title="Tickets" description="Quản lý tất cả các ticket trong hệ thống." />,
+        element: <Pending />,
       },
       {
         path: 'customers',
-        element: <Pending title="Customers" description="Quản lý thông tin khách hàng." />,
+        element: <Pending />,
       },
       {
         path: 'performance',
-        element: <Pending title="Performance" description="Báo cáo hiệu suất và thống kê." />,
+        element: <Pending />,
       },
       {
         path: 'report',
-        element: <Pending title="Report" description="Các báo cáo chi tiết và xuất dữ liệu." />,
+        element: <Pending />,
       },
       {
         path: 'settings',
-        element: <Pending title="Settings" description="Cài đặt hệ thống và cấu hình." />,
+        element: <Pending />,
       },
     ],
   },
