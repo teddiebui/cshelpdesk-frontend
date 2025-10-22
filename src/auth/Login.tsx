@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from './AuthContext'
-import styles from '../styles/login.module.css'
 
 export default function Login() {
   const [formLogin, setFormLogin] = useState({ username: '', password: '' })
@@ -27,12 +26,12 @@ export default function Login() {
   return (
     <>
       <title>Đăng nhập | Thiên An Phú Co., Ltd</title>
-      <div className={styles.loginContainer}>
-        <div className={styles.loginBox}>
+      <div className="bg-cover bg-[url('/img/img-auth-bg.jpg')] text-[#3c3f45a8] fixed top-0 left-0 right-0 bottom-0 w-screen h-screen min-h-screen m-0 p-0 z-9999">
+        <div className="bg-white w-[400px] h-[600px] p-6 rounded-lg shadow-lg transform -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-10001 p-[30px] flex items-center justify-center ">
             <div className="wrapper w-100">
                 <div className="text-center mb-4">
                     <div className="flex justify-center mb-2">
-                        <svg className={`${styles.svg}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                        <svg className="w-[85px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                         <path fill="#6446fe"
                               d="M59,8H5A1,1,0,0,0,4,9V55a1,1,0,0,0,1,1H59a1,1,0,0,0,1-1V9A1,1,0,0,0,59,8ZM58,54H6V10H58Z"
                               className="color1d1f47 svgShape"></path>
@@ -56,17 +55,17 @@ export default function Login() {
                               opacity=".3" className="color0055ff svgShape"></path>
                         </svg>
                     </div>
-                    <div className={`${styles.logo} text-red-500 mb-2`}>Thiên An Phú</div>
-                    <div className={`${styles.subtitle} mb-2`}>Chào mừng quay trở lại</div>
+                    <div className="font-[600] text-[1.8rem] text-[#2c3e50] mb-2">Thiên An Phú</div>
+                    <div className="mb-2 text-[14px] text-[#98a5c3]">Chào mừng quay trở lại</div>
                 </div>
 
                 {/* check nếu path là /login?logout=true */}
                 {typeof window !== 'undefined' && window.location.pathname === '/login' && window.location.search === '?logout=true' && (
-                  <div className={`${styles.alert} alert alert-success`}>Đăng xuất thành công.</div>
+                  <div className="alert alert-success text-[0.9rem]">Đăng xuất thành công.</div>
                 )}
 
                 {error && (
-                  <div className={`${styles.alert} alert alert-danger`}>
+                  <div className="alert alert-danger text-[0.9rem]">
                     {typeof (error as any)?.message === 'string' ? (error as any).message : 'Đăng nhập thất bại'}
                   </div>
                 )}
@@ -76,8 +75,8 @@ export default function Login() {
                     <div className="mb-4">
                         <input
                           type="text"
-                          className={styles.input}
-                          id="username"
+                          className="w-full p-[10px_15px] text-[15px] text-[#494949] border border-[#dbe0e5] rounded-lg transition-all outline-none placeholder:text-[#c4cacf] focus:!border-[#6c7a88] hover:!border-[#6c7a88]"
+                            id="username"
                           name="username"
                           placeholder="Tên đăng nhập"
                           data-bs-toggle="popover"
@@ -94,7 +93,7 @@ export default function Login() {
                         <div className="position-relative">
                             <input
                               type={isPasswordVisible ? 'text' : 'password'}
-                              className={styles.input}
+                              className="w-full p-[10px_15px] text-[15px] text-[#494949] border border-[#dbe0e5] rounded-lg transition-all outline-none placeholder:text-[#c4cacf] focus:!border-[#6c7a88] hover:!border-[#6c7a88]"
                               id="password"
                               name="password"
                               placeholder="Mật khẩu"
@@ -109,13 +108,13 @@ export default function Login() {
                             {isPasswordVisible ? (
                               <i
                                 id="hide-password"
-                                className={`bi bi-eye-slash ${styles.hidePassword}`}
+                                className="bi bi-eye-slash hidden absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-[#979797] text-[18px] transition-all cursor-pointer hover:text-[#343434]"
                                 onClick={() => setIsPasswordVisible(false)}
                               ></i>
                             ) : (
                               <i
                                 id="show-password"
-                                className={`bi bi-eye ${styles.showPassword}`}
+                                className="bi bi-eye block absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-[#979797] text-[18px] transition-all cursor-pointer hover:text-[#343434]"
                                 onClick={() => setIsPasswordVisible(true)}
                               ></i>
                             )}
@@ -128,7 +127,7 @@ export default function Login() {
                             <span>Ghi nhớ</span>
                         </div>
                         <div className="forgot-password">
-                            <a href="" className={styles.link}>Quên mật khẩu?</a>
+                            <a href="" className="text-decoration-none text-muted">Quên mật khẩu?</a>
                         </div>
                     </div>
 
@@ -138,9 +137,9 @@ export default function Login() {
                 </form>
             </div>
 
-            <div className={`d-flex flex-row justify-content-center ${styles.documentation} position-absolute bottom-0 mb-3`}>
-                <a href="/term-of-service" className={`${styles.link} text-muted me-2`}><span className="">Điều khoản dịch vụ</span></a>
-                <a href="/privacy-policy" className={`${styles.link} text-muted`}><span className="">Quyền riêng tư</span></a>
+              <div className="d-flex flex-row justify-content-center text-documentation position-absolute bottom-0 mb-3">
+                <a href="/term-of-service" className="text-decoration-none text-muted me-2"><span className="">Điều khoản dịch vụ</span></a>
+                <a href="/privacy-policy" className="text-decoration-none text-muted"><span className="">Quyền riêng tư</span></a>
             </div>
         </div>
       </div>
