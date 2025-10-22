@@ -27,12 +27,12 @@ export default function Login() {
   return (
     <>
       <title>Đăng nhập | Thiên An Phú Co., Ltd</title>
-      {/* <link rel="stylesheet" href="/css/login.css" /> */}
       <div className={styles.loginContainer}>
         <div className={styles.loginBox}>
             <div className="wrapper w-100">
                 <div className="text-center mb-4">
-                    <svg className={`${styles.svg} mb-2`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                    <div className="flex justify-center mb-2">
+                        <svg className={`${styles.svg}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                         <path fill="#6446fe"
                               d="M59,8H5A1,1,0,0,0,4,9V55a1,1,0,0,0,1,1H59a1,1,0,0,0,1-1V9A1,1,0,0,0,59,8ZM58,54H6V10H58Z"
                               className="color1d1f47 svgShape"></path>
@@ -54,8 +54,9 @@ export default function Login() {
                         <path fill="#6446fe"
                               d="M60 9a1 1 0 0 0-1-1H28.81l2.37-2.37A19.22 19.22 0 0 1 60 31zM35.19 56l-2.37 2.37A19.22 19.22 0 0 1 4 33V55a1 1 0 0 0 1 1z"
                               opacity=".3" className="color0055ff svgShape"></path>
-                    </svg>
-                    <div className={`${styles.logo} mb-2`}>Thiên An Phú</div>
+                        </svg>
+                    </div>
+                    <div className={`${styles.logo} text-red-500 mb-2`}>Thiên An Phú</div>
                     <div className={`${styles.subtitle} mb-2`}>Chào mừng quay trở lại</div>
                 </div>
 
