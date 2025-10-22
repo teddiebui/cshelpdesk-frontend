@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { AuthProvider } from './auth/AuthContext'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import Login from './auth/Login'
 import ProtectedRoute from './auth/ProtectedRoute'
 import Layout from './components/fragment/Layout'
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Pending />,
+        element: <Navigate to="/today-staff" replace />,
       },
       {
         path: 'today-staff',

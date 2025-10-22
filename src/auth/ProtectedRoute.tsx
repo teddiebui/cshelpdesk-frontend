@@ -8,6 +8,12 @@ interface ProtectedRouteProps {
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { isAuthenticated, loading } = useAuth()
   const location = useLocation()
+
+  console.log("ProtectedRoute.tsx: isAuthenticated:", isAuthenticated);
+  console.log("ProtectedRoute.tsx: loading:", loading);
+  console.log("ProtectedRoute.tsx: location:", location);
+  console.log("ProtectedRoute.tsx: children:", children);
+
   // Hiển thị loading khi đang kiểm tra authentication
   if (loading) {
     return (

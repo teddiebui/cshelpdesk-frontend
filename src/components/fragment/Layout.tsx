@@ -1,14 +1,22 @@
-import { useState } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Header from './Header'
 
 function Layout() {
+  // useEffect(() => {
+  //   // Check if login.css is already appended
+  //   if (!document.querySelector('link[href="/css/style.css"]')) {
+  //     const link = document.createElement('link');
+  //     link.rel = 'stylesheet';
+  //     link.href = '/css/style.css';
+  //     document.head.appendChild(link);
+  //   }
+  // }, []);
 
   return (
     <>
-      <link rel="stylesheet" href="/css/style.css" />
+      {/* <link rel="stylesheet" href="/css/style.css"/> */}
       <div className="page-content">
         <Header />
         <Sidebar />
@@ -20,20 +28,6 @@ function Layout() {
   )
 }
 
-function getPageTitle(pathname: string): string {
-  const titles: { [key: string]: string } = {
-    '/': 'Bảng điều khiển',
-    '/today-staff': 'Bảng điều khiển',
-    '/today-ticket': 'Bảng điều khiển',
-    '/tickets': 'Quản lý Ticket',
-    '/customers': 'Khách hàng',
-    '/performance': 'Hiệu suất',
-    '/reports': 'Báo cáo',
-    '/settings': 'Cài đặt'
-  }
-  
-  return titles[pathname] || 'Admin Dashboard'
-}
 
 export default Layout
 

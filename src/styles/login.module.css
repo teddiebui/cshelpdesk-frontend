@@ -3,24 +3,26 @@ html {
   font-optical-sizing: auto;
 }
 
-body {
-  background: url("img/img-auth-bg.jpg") no-repeat center fixed;
+.loginContainer {
+  background: url("/img/img-auth-bg.jpg") no-repeat center fixed;
   background-size: cover;
   color: #3c3f45a8;
-
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
-}
-
-.overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
 }
 
-.login-box {
+.loginBox {
   width: 400px;
   height: 600px;
   background: white;
@@ -31,6 +33,10 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
 }
 
 .logo {
@@ -43,26 +49,33 @@ body {
   font-size: 0.9rem;
 }
 
-.is-invalid {
+.isInvalid {
   border-color: #dc3545 !important;
 }
 
-#show-password,
-#hide-password {
+.showPassword,
+.hidePassword {
   display: none;
   position: absolute;
   top: 50%;
   right: 0;
   transform: translate(-50%, -50%);
   color: #979797;
+  font-size: 18px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
-#show-password {
+.showPassword {
   display: block;
 }
 
-input[type="text"],
-input[type="password"] {
+.showPassword:hover,
+.hidePassword:hover {
+  color: #343434;
+}
+
+.input {
   font-size: 15px;
   color: #494949;
   border: 1px solid #dbe0e5;
@@ -72,36 +85,25 @@ input[type="password"] {
   transition: all 0.3s;
 }
 
-input::placeholder {
+.input::placeholder {
   color: #c4cacf;
 }
 
-input:focus,
-input:hover {
+.input:focus,
+.input:hover {
   border: 1px solid #6c7a88;
   outline: none;
-}
-
-i#show-password,
-i#hide-password {
-  font-size: 18px;
-  transition: all 0.5s;
-}
-
-i#show-password:hover,
-i#hide-password:hover {
-  color: #343434;
 }
 
 .documentation {
   font-size: 16px;
 }
 
-a {
+.link {
   text-decoration: none !important;
 }
 
-svg {
+.svg {
   width: 85px;
 }
 

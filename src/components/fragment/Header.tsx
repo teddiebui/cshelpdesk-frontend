@@ -1,7 +1,19 @@
+import { useAuth } from '../../auth/AuthContext'
+
 const Header = () => {
-    const setLanguage = (language: string) => {
+    const { user, logout } = useAuth()
+    
+    const setLanguage = (_language: string) => {
         console.log("setLanguage: not implemented");
         alert("not implemented");
+    }
+    
+    const handleLogout = async () => {
+        try {
+            await logout()
+        } catch (error) {
+            console.error('Logout failed:', error)
+        }
     }
     return (
         <>
@@ -46,6 +58,7 @@ const Header = () => {
                         <button className="dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                             <img src="/img/profile-placeholder.jpg" alt="User Avatar" className="user-avatar" />
+                            <span className="user-name">{user?.name || 'User'}</span>
                         </button>
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li><a className="dropdown-item" href="#" id="user-profile-button"><i className="bi bi-person"></i>
@@ -55,7 +68,7 @@ const Header = () => {
                             <li>
                                 <hr className="dropdown-divider" />
                             </li>
-                            <li><a className="dropdown-item" href="/logout"><i className="bi bi-box-arrow-right"></i> Đăng
+                            <li><a className="dropdown-item" href="#" onClick={handleLogout}><i className="bi bi-box-arrow-right"></i> Đăng
                                 xuất</a>
                             </li>
                         </ul>

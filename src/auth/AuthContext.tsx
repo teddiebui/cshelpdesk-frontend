@@ -20,7 +20,7 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState<AuthenticatedUserInfo | null>(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true) // Start as true to prevent flash
   const [error, setError] = useState<ApiResponse | null>(null)
 
   // Hàm xử lý session cleanup khi JSESSIONID không hợp lệ
